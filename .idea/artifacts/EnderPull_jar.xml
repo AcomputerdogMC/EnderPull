@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="EnderPull:jar">
+    <output-path>$PROJECT_DIR$/out/</output-path>
+    <root id="archive" name="EnderPull.jar">
+      <element id="module-output" name="EnderPull" />
+    </root>
+  </artifact>
+</component>

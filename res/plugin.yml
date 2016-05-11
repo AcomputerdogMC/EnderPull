@@ -1,0 +1,33 @@
+name: EnderPull
+version: 1.0.3
+description: Pulls enderchests from other worlds
+author: acomputerdog
+main: net.acomputerdog.enderpull.PluginEnderPull
+
+commands:
+  enderpull:
+    description: Takes items from a player's enderchests in other worlds
+    permission: enderpull.ender
+    usage: /enderpull
+    aliases: [pullender, pullenderchest, enderchestpull]
+  invpull:
+    description: Takes items from a player's inventory in other worlds
+    permission: enderpull.inventory
+    usage: /invpull
+    aliases: [pullinv, pullinventory, inventorypull]
+  allpull:
+    description: Takes items from a player's enderchests and inventories in other worlds
+    permission: enderpull.all
+    usage: /allpull
+    aliases: pullall
+
+permissions:
+  enderpull.ender:
+    default: true
+    description: Use /enderpull
+  enderpull.inventory:
+    default: true
+    description: Use /invpull
+  enderpull.all:
+    default: true
+    description: Use /allpull
