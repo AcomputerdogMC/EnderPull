@@ -1,11 +1,11 @@
 package net.acomputerdog.enderpull;
 
-import net.minecraft.server.v1_9_R2.*;
+import net.minecraft.server.v1_10_R1.*;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.craftbukkit.v1_9_R2.inventory.CraftInventoryPlayer;
+import org.bukkit.craftbukkit.v1_10_R1.inventory.CraftInventoryPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -136,11 +136,11 @@ public class PluginEnderPull extends JavaPlugin {
         NBTBase id = item.get("id");
         if (id instanceof NBTTagShort) {
             //get the item name
-            String name = Item.REGISTRY.b(Item.getById(((NBTTagShort)id).d())).a();
+            String name = Item.REGISTRY.b(Item.getById(((NBTTagShort)id).e())).a();
             item.setString("id", formatName(name));
 
         } else if (id instanceof NBTTagString) { //fix a name corruption bug caused by earlier plugin versions
-            String name = ((NBTTagString)id).a_(); //get original name
+            String name = ((NBTTagString)id).c_(); //get original name
             if (Item.d(name) == null) { //if name is not an item
                 p.sendMessage("Item has invalid name, we will attempt to convert it.");
                 if (name.startsWith("minecraft:tile.")) { //convert block

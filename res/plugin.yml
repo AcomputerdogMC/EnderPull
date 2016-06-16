@@ -1,5 +1,5 @@
 name: EnderPull
-version: 1.0.3
+version: 1.1.0
 description: Pulls enderchests from other worlds
 author: acomputerdog
 main: net.acomputerdog.enderpull.PluginEnderPull
