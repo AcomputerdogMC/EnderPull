@@ -1,11 +1,11 @@
 package net.acomputerdog.enderpull;
 
-import net.minecraft.server.v1_10_R1.*;
+import net.minecraft.server.v1_11_R1.*;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.craftbukkit.v1_10_R1.inventory.CraftInventoryPlayer;
+import org.bukkit.craftbukkit.v1_11_R1.inventory.CraftInventoryPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -102,9 +102,9 @@ public class PluginEnderPull extends JavaPlugin {
         for (int i = 0; i < inv.size(); i++) {
             NBTTagCompound item = inv.get(i);
             upgradeItem(player, item);
-            ItemStack stack = ItemStack.createStack(item);
-            if (stack != null) {
-                if (inventory.getInventory().canHold(stack) >= stack.count) { //if the stack can fit
+            ItemStack stack = new ItemStack(item);
+            if (!stack.isEmpty()) {
+                if (inventory.getInventory().canHold(stack) >= stack.getCount()) { //if the stack can fit
                     inventory.getInventory().pickup(stack); //add the stack
                     inv.remove(i); //remove from the old file
                     i--; //decrement because remove put the next item in this index
@@ -141,7 +141,7 @@ public class PluginEnderPull extends JavaPlugin {
 
         } else if (id instanceof NBTTagString) { //fix a name corruption bug caused by earlier plugin versions
             String name = ((NBTTagString)id).c_(); //get original name
-            if (Item.d(name) == null) { //if name is not an item
+            if (Item.b(name) == null) { //if name is not an item
                 p.sendMessage("Item has invalid name, we will attempt to convert it.");
                 if (name.startsWith("minecraft:tile.")) { //convert block
                     renameBlock(name, p, item);
